@@ -1,5 +1,5 @@
 ---
-title: "Tweets and Trends"
+title: "World Education and Economy"
 author: "Maya Sioson, Emilynn Roehrich, Hershey Lande, Anish Prasad"
 date: "3/5/2019"
 output: html_document
@@ -9,9 +9,4 @@ output: html_document
 library("knitr")
 library("kableExtra")
 source("analysis.R")
-global_id <- "1"
-seattle_id <- "2490383"
-portland_id <- "2475687"
-us_id <- "23424977"
-london_id <- "44418"
 ```
