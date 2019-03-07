@@ -35,5 +35,5 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 
-# API keys
-apikeys.R
+# Mac DS Store
+.DS_Store
