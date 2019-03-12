@@ -2,6 +2,7 @@ library("shiny")
 source("scripts/education_vs_population.R")
 
 select_values <- c(all_df$Country.Name)
+select_values <- unique(select_values)
 
 app_ui <- navbarPage(
   "Global Economy and Education Trends",
@@ -97,21 +98,32 @@ app_ui <- navbarPage(
     plotOutput("industrialized_plot")
   ),
   
-  # tabPanel(
-  #   "Education spending versus population",
-  #   div(
-  #     style = "display:inline-block",
-  #     selectInput(inputId = "country", label = "Country of Choice",
-  #                 choices = select_values, selected = "United States")
-  #     ),
-  #   div(
-  #     style = "display:inline-block",
-  #     sliderInput(inputId = "year", label = "Year Range:",
-  #                 min = 1970, max = 2018, value = c(2002, 2017))
-  #   ),
-  #   
-  #   plotOutput("education_plot")
-  # ),
+  tabPanel(
+      "Education Spending Versus Population",
+      h2("Comparing Country Education to Country Population Over Time"),
+      p("Educatuion leads to higher living standards, and median incomes.",
+        "The average person spends 19 years in school",
+        "In this section, the following question will",
+        "be addressed:"
+      ),
+      p(strong(
+        "1. What is the difference between education budgeting through time in",
+        "relation to population growth? \n",
+        "2. Is the government in the specified countries giving more importance", 
+        "to education as population is increase?"
+      )),
+      div(
+        style = "display:inline-block",
+        selectInput("country", "Country of Choice",
+                    select_values, "Greece")
+        ),
+      div(
+        uiOutput("education_slider")
+      ),
+  
+     plotOutput("education_plot"),
+     plotOutput("population_plot")
+  ),
 
   tabPanel("About")
 )

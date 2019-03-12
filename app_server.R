@@ -101,19 +101,18 @@ app_server <- function(input, output) {
   })
   
   output$education_slider <- renderUI({
-    all_df <- filter(all_df, Country.Name == input$country)
-    slider <- tagList(
-      sliderInput("year", "Year Range:", all_df[1, "Year"], all_df[nrow(all_df), "Year"], c(all_df[1, "Year"], all_df[nrow(all_df), "Year"]))
-    )
-    slider # return
+    slider <- generate_slider(input$country)
+  })
+  
+  output$population_slider <- renderUI({
+    slider <- generate_slider(input$country)
   })
   
   output$education_plot <- renderPlot({
-    ggplot(data = all_df) + 
-      geom_line(mapping = aes_string(x = "Year", y = "Population")) + 
-      geom_line(mapping = aes_string(x = "Year", y = "education_budget")) + 
-      labs(
-        title = paste0("Population Density and Education Budget in ", input$country, " from ", input$year[1], " to ", input$year[2]) # plot title
-      ) 
+    draw_education_plot(input$country, input$year[1], input$year[2])
+  })
+  
+  output$population_plot <- renderPlot({
+    draw_population_plot(input$country, input$year[1], input$year[2])
   })
 }
