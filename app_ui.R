@@ -93,6 +93,18 @@ app_ui <- navbarPage(
   
   tabPanel(
       "Education Spending Versus Population",
+      h2("Comparing Country Education to Country Population Over Time"),
+      p("Educatuion leads to higher living standards, and median incomes.",
+        "The average person spends 19 years in school",
+        "In this section, the following question will",
+        "be addressed:"
+      ),
+      p(strong(
+        "1. What is the difference between education budgeting through time in",
+        "relation to population growth? \n",
+        "2. Is the government in the specified countries giving more importance", 
+        "to education as population is increase?"
+      )),
       div(
         style = "display:inline-block",
         selectInput("country", "Country of Choice",
