@@ -43,11 +43,6 @@ app_server <- function(input, output) {
                      
   })
   
-  output$nordic_description <- renderText({
-    message <- "The line plots"
-
-  })
-  
   output$nordic_analysis <- renderText({
     message <- "On average, a Nordic country spends "
     message <- paste0(message,
