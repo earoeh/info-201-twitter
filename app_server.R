@@ -96,6 +96,10 @@ app_server <- function(input, output) {
     create_developing_plot(input$developing_country)
   })
   
+  output$industrialized_plot <- renderPlot({
+    create_industrialized_plot(input$industrialized_country)
+  })
+  
   output$education_slider <- renderUI({
     all_df <- filter(all_df, Country.Name == input$country)
     slider <- tagList(

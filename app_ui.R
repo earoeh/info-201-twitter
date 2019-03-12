@@ -97,21 +97,21 @@ app_ui <- navbarPage(
     plotOutput("industrialized_plot")
   ),
   
-  tabPanel(
-    "Education spending versus population",
-    div(
-      style = "display:inline-block",
-      selectInput(inputId = "country", label = "Country of Choice",
-                  choices = select_values, selected = "United States")
-      ),
-    div(
-      style = "display:inline-block",
-      sliderInput(inputId = "year", label = "Year Range:",
-                  min = 1970, max = 2018, value = c(2002, 2017))
-    ),
-    
-    plotOutput("education_plot")
-  ),
+  # tabPanel(
+  #   "Education spending versus population",
+  #   div(
+  #     style = "display:inline-block",
+  #     selectInput(inputId = "country", label = "Country of Choice",
+  #                 choices = select_values, selected = "United States")
+  #     ),
+  #   div(
+  #     style = "display:inline-block",
+  #     sliderInput(inputId = "year", label = "Year Range:",
+  #                 min = 1970, max = 2018, value = c(2002, 2017))
+  #   ),
+  #   
+  #   plotOutput("education_plot")
+  # ),
 
   tabPanel("About")
 )
