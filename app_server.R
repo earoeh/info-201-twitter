@@ -16,11 +16,10 @@ app_server <- function(input, output) {
   output$education_slider <- renderUI({
     all_df <- filter(all_df, Country.Name == input$country)
     slider <- tagList(
-      sliderInput("year", "Year Range:", all_df[1], all_df[nrow(all_df)], c(all_df[1], all_df[nrow(all_df)]))
+      sliderInput("year", "Year Range:", all_df[1, "Year"], all_df[nrow(all_df), "Year"], c(all_df[1, "Year"], all_df[nrow(all_df), "Year"]))
     )
     slider # return
   })
-  s
   output$education_plot <- renderPlot({
     ggplot(data = all_df) + 
       geom_line(mapping = aes_string(x = "Year", y = "Population")) + 
