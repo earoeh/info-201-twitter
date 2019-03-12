@@ -11,6 +11,16 @@ nordic_data <- nordic_data %>%
          Education.Expenditure.Billions = round(Education.Expenditure.Value / 1000000000, 1),
          GDP.Billions = round(GDP / 1000000000))
 
+avg_nordic_expenditure_percent <- round(mean(nordic_data$Education.Expenditure,
+                                         na.rm = T), 2)
+avg_nordic_expenditure <- round(mean(nordic_data$Education.Expenditure.Billions,
+                                     na.rm = T), 1)
+avg_nordic_pop <- round(mean(nordic_data$Population))
+nordic_data_no_iceland <- nordic_data %>%
+  filter(Country.Name != "Iceland")
+avg_nordic_pop_no_iceland <- round(mean(nordic_data_no_iceland$Population,
+                                        na.rm = T))
+
 top_economies <- c("Germany", "India", "Japan",
                    "United Kingdom", "United States")
 
@@ -20,6 +30,12 @@ top_economies_data <- top_economies_data %>%
   mutate(Education.Expenditure.Value = GDP * (Education.Expenditure / 100),
          Education.Expenditure.Billions = round(Education.Expenditure.Value / 1000000000, 1),
          GDP.Billions = round(GDP / 1000000000))
+
+avg_top_economy_expenditure_percent <- round(mean(top_economies_data$Education.Expenditure,
+                                    na.rm = T), 2)
+avg_top_economy_expenditure <- round(mean(top_economies_data$Education.Expenditure.Billions,
+                                          na.rm = T), 1)
+avg_top_economy_pop <- round(mean(top_economies_data$Population))
 
 # Generates a line plot of the given data.
 generate_plot <- function(data, area) {
