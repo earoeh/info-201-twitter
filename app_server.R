@@ -11,7 +11,7 @@ app_server <- function(input, output) {
   output$top_plot <- renderPlot({
     generate_line_plot_top(input$top_country)
   })
-  
+
   output$nordic_description <- renderText({
     if (input$nordic_country == "All") {
       nordic_country <- nordic
@@ -35,6 +35,11 @@ app_server <- function(input, output) {
                      "of the countries with top GDPs worldwide.",
                      "You can select which countries to display below.")
                      
+  })
+  
+  output$nordic_description <- renderText({
+    message <- "The line plots"
+
   })
   
   output$nordic_analysis <- renderText({
@@ -84,4 +89,21 @@ app_server <- function(input, output) {
   output$developing_plot <- renderPlot({
     create_developing_plot(input$developing_country)
   })
+  
+  output$education_slider <- renderUI({
+    all_df <- filter(all_df, Country.Name == input$country)
+    slider <- tagList(
+      sliderInput("year", "Year Range:", all_df[1, "Year"], all_df[nrow(all_df), "Year"], c(all_df[1, "Year"], all_df[nrow(all_df), "Year"]))
+    )
+    slider # return
+  })
+  output$education_plot <- renderPlot({
+    ggplot(data = all_df) + 
+      geom_line(mapping = aes_string(x = "Year", y = "Population")) + 
+      geom_line(mapping = aes_string(x = "Year", y = "education_budget")) + 
+      labs(
+        title = paste0("Population Density and Education Budget in ", input$country, " from ", input$year[1], " to ", input$year[2]) # plot title
+      ) 
+  })
+
 }

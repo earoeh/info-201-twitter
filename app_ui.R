@@ -65,7 +65,7 @@ app_ui <- navbarPage(
   ),
   
   tabPanel("Developing Countries",
-
+           
     div(
       style = "display:inline-block",
       selectInput("developing_country", label = "Developing Country to Display",
@@ -75,7 +75,7 @@ app_ui <- navbarPage(
     ),
     
     plotOutput("developing_plot"),
-    
+           
     div(
       style = "display:inline-block",
       selectInput("industrialized_country", label = "Industrialized Country to Display",
