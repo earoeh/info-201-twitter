@@ -1,4 +1,7 @@
 library("shiny")
+source("scripts/education_vs_population.R")
+
+select_values <- c(all_df$Country.Name)
 
 app_ui <- navbarPage(
   "Global Economy and Education Trends",
@@ -51,12 +54,11 @@ app_ui <- navbarPage(
       style = "display:inline-block",
       selectInput(inputId = "country", label = "Country of Choice",
                   choices = select_values, selected = "United States")
-      ),
+    ),
     div(
       style = "display:inline-block",
-      sliderInput(inputId = "year", label = "Year Range:",
-                  min = 1970, max = 2018, value = c(2002, 2017)),
+      uiOutput("education_slider")
     ),
-    plotOutput("education_plot"),
+    plotOutput("education_plot")
   )
 )
