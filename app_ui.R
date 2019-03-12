@@ -11,8 +11,7 @@ app_ui <- navbarPage(
       "Nordic countries such as Finland are constantly",
       "in the media due to their education system.",
       "Advertised as being free from primary education",
-      "to university, the Nordic educat
-      ion system is often",
+      "to university, the Nordic education system is often",
       "praised. In this section, the following question will",
       "be addressed:"
     ),
@@ -65,23 +64,18 @@ app_ui <- navbarPage(
       "to a happier country.")
   ),
 
-  tabPanel("Education spending versus population",
-        div(
-          style = "display:inline-block",
-          selectInput(inputId = "country", label = "Country of Choice",
-                      choices = select_values, selected = "United States")
-        ),
-        div(
-             style = "display:inline-block",
-             uiOutput("education_slider")
-        ),
-        plotOutput("education_plot")
-  ),
-  
   tabPanel("Developing Countries",
-    selectInput("developing_country", label = "Developing Country to Display",
-                choices = c("All", "Afghanistan", "Ethiopia", "Philippines", "Indonesia", "Nepal")),
-    plotOutput("developing_plot"),
+           
+    div(
+      style = "display:inline-block",
+      selectInput("developing_country", label = "Developing Country to Display",
+                  choices = c(
+                    "All", "Afghanistan", "Ethiopia", "Philippines", "Indonesia", "Nepal"
+                  ))
+    ),
+           
+      plotOutput("developing_plot"),
+           
     div(
       style = "display:inline-block",
       selectInput("industrialized_country", label = "Industrialized Country to Display",
@@ -89,7 +83,22 @@ app_ui <- navbarPage(
                     "All", "Germany", "India", "Japan", "United Kingdom", "United States"
                   ))
     ),
+           
     plotOutput("industrialized_plot")
   ),
+  
+  # tabPanel("Education spending versus population",
+  #       div(
+  #         style = "display:inline-block",
+  #         selectInput(inputId = "country", label = "Country of Choice",
+  #                     choices = select_values, selected = "United States")
+  #       ),
+  #       div(
+  #            style = "display:inline-block",
+  #            uiOutput("education_slider")
+  #       ),
+  #       plotOutput("education_plot")
+  # ),
+
   tabPanel("About")
 )
