@@ -8,6 +8,13 @@ app_ui <- navbarPage(
   tabPanel("Home"),
   
   tabPanel(
+    "GDP Per Capita",
+    sliderInput(inputId = "capita_year", label = "Year:",
+                min = 1970, max = 2018, value = 2000, sep = ""),
+    plotOutput("capita_plot")
+  ),
+  
+  tabPanel(
     "Nordic Countries",
     h2("Comparing Nordic Education to Countries with Top GDP"),
     p(

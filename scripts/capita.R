@@ -15,7 +15,8 @@ types <- c("GDP.Per.Capita", "Education.Per.Capita")
 united_kingdom <- filter(united_kingdom,
                          Type %in% types)
 
-generate_plot <- function(selected_year) {
+# Generates a bar plot of GDP and education spending per capita for the given year
+generate_capita_plot <- function(selected_year) {
   united_kingdom_year <- filter(united_kingdom,
                                 Year == selected_year)
   
@@ -25,4 +26,3 @@ generate_plot <- function(selected_year) {
     labs(x = "Spending",
          y = "US Dollars per Capita")
 }
-generate_plot("2000")

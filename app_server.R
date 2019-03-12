@@ -2,8 +2,13 @@ library("shiny")
 source("scripts/nordic.R")
 source("scripts/education_vs_population.R")
 source("scripts/developing.R")
+source("scripts/capita.R")
 
 app_server <- function(input, output) {
+  
+  output$capita_plot <- renderPlot({
+    generate_capita_plot(input$capita_year)
+  })
   
   output$nordic_plot <- renderPlot({
     generate_line_plot_nordic(input$nordic_country)
