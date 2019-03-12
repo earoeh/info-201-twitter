@@ -2,6 +2,7 @@ library("shiny")
 source("scripts/education_vs_population.R")
 
 select_values <- c(all_df$Country.Name)
+select_values <- unique(select_values)
 
 app_ui <- navbarPage(
   "Global Economy and Education Trends",
@@ -91,19 +92,18 @@ app_ui <- navbarPage(
   ),
   
   tabPanel(
-    "Education spending versus population",
-    div(
-      style = "display:inline-block",
-      selectInput(inputId = "country", label = "Country of Choice",
-                  choices = select_values, selected = "United States")
+      "Education Spending Versus Population",
+      div(
+        style = "display:inline-block",
+        selectInput("country", "Country of Choice",
+                    select_values, "Greece")
+        ),
+      div(
+        uiOutput("education_slider")
       ),
-    div(
-      style = "display:inline-block",
-      sliderInput(inputId = "year", label = "Year Range:",
-                  min = 1970, max = 2018, value = c(2002, 2017))
-    ),
-    
-    plotOutput("education_plot")
+  
+     plotOutput("education_plot"),
+     plotOutput("population_plot")
   ),
 
   tabPanel("About")
