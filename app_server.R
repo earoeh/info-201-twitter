@@ -13,7 +13,28 @@ app_server <- function(input, output) {
   })
   
   output$nordic_description <- renderText({
-    message <- "The line plots"
+    if (input$nordic_country == "All") {
+      nordic_country <- nordic
+      nordic_country <- paste(nordic_country, collapse = ", ")
+    } else {
+      nordic_country <- input$nordic_country
+    }
+    if (input$top_country == "All") {
+      top_country <- top_economies
+      top_country <- paste(top_country, collapse = ", ")
+    } else {
+      top_country <- input$top_country
+    }
+    
+    message <- paste("The line plots below show GDP and economic expenditure",
+                     "across time. GDP is in green and economic expenditure is",
+                     "in blue. Currently, the line plots compare",
+                     nordic_country,
+                     "of the Nordic countries and",
+                     top_country,
+                     "of the countries with top GDPs worldwide.",
+                     "You can select which countries to display below.")
+                     
   })
   
   output$nordic_analysis <- renderText({
