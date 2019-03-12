@@ -60,10 +60,7 @@ app_server <- function(input, output) {
                      "times as much on education.")
   })
   
-<<<<<<< HEAD
   output$developing_plot <- renderPlot({
     create_developing_plot(input$developing_country)
   })
-=======
->>>>>>> master
 }
