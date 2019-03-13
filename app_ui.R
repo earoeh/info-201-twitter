@@ -54,7 +54,22 @@ app_ui <- navbarPage(
     )),
     sliderInput(inputId = "capita_year", label = "Year:",
                 min = 1970, max = 2018, value = 2000, sep = ""),
-    plotOutput("capita_plot")
+    plotOutput("capita_plot"),
+    p(
+      "From scrolling through the years of data, it seems that",
+      "increases in education spending strongly correlate to",
+      "increases in GDP per capita. These two metrics alone",
+      "can't imply causality, but they do appear to link education",
+      "and standard of living. The UK's system of education is very",
+      "similar to the US, except with one key difference: after their",
+      "tenth year of schooling, students must decide whether to attend",
+      "sixth form. Sixth form consists of two years where students",
+      "can study specific specialties before either going to universities",
+      "or the workforce. This system may play a role in understanding",
+      "the role education plays in the UK's economy. Perhaps visualizations",
+      "like these can help legislators to make tough decisions about", 
+      "discretionary spending in future appropriations."
+    )
   ),
   
   tabPanel(
