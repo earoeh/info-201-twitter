@@ -12,27 +12,16 @@ education <- read.csv(file = "data/wdi_education_cleaned.csv", stringsAsFactors 
 education <- select(education, -c(Country.Code : Indicator.Code))
 
 education_long<- gather(        #gathers data long shape
-<<<<<<< HEAD
     education,
     key = year,
     value = education_budget,
     -Country.Name
 )
-=======
-  education,
-  key = year,
-  value = education_budget,
-  -Country.Name
-) 
->>>>>>> education_vs_population
 
 education <- mutate(education_long, Year = as.numeric(substr(education_long$year, 2, nchar(education_long$year))))
 
 education$year <- NULL
 
-<<<<<<< HEAD
-all_df <- left_join(population, education, by = c("Country.Name" = "Country.Name", "Year" = "Year")) %>% drop_na()
-=======
 #combines all data that was filtered and selected
 all_df <- left_join(population, education, by = c("Country.Name" = "Country.Name", "Year" = "Year")) %>% drop_na()
 
@@ -81,4 +70,3 @@ generate_slider <- function(country){
   )
   slider
 }
->>>>>>> education_vs_population
