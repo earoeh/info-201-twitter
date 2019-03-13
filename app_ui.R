@@ -38,6 +38,20 @@ app_ui <- navbarPage(
   
   tabPanel(
     "GDP Per Capita",
+    h2("Comparing the United Kingdom's Standard of Living and Education Spending"),
+    p(
+      "The United Kingdom has had a history of transparency with their",
+      "governmental data dating back to the 1970s. For this country in",
+      "particular, we wanted to see if there was a correlation between how",
+      "well a country's citizens live versus how much their country spent on",
+      "education."
+    ),
+    p(strong(
+      "How does the United Kingdom's education spending",
+      "affect their citizens' standard of living?",
+      "Does education affect standard of living or ",
+      "does standard of living affect education?"
+    )),
     sliderInput(inputId = "capita_year", label = "Year:",
                 min = 1970, max = 2018, value = 2000, sep = ""),
     plotOutput("capita_plot")
