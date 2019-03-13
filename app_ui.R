@@ -6,7 +6,29 @@ select_values <- unique(select_values)
 
 app_ui <- navbarPage(
   "Global Economy and Education Trends",
-  tabPanel("Home"),
+  tabPanel(
+    "About",
+    h2("World Economy and Education Trends"),
+    p("Our project analyzes the correlations between",
+      "economic signifiers and education expenditure.",
+      "We believe education needs to be a high priority",
+      "for countries all over the world, and intend to",
+      "demonstrate this through the analysis in our project."),
+    p("In the GDP Per Capita, you can view the GDP and",
+      "education expenditure per capita in the United Kingdom."),
+    p("If you click on the Nordic Countries tab, you will",
+      "find an analysis of GDP and education expenditure",
+      "in Nordic countries compared to countries with the",
+      "top GDPs."),
+    p("The Developing Countries tab shows an analysis of",
+      "GDP and education expenditure in developing countries",
+      "compared to industrialized countries."),
+    p("Finally, in the Education Spending versus Population",
+      "tab, there is an analysis of how education spending",
+      "correlates with population."),
+    p("Written by Anish Prasad, Emilynn Roehrich,",
+      "Hershey Lande, and Maya Sioson.")
+    ),
   
   tabPanel(
     "GDP Per Capita",
@@ -153,6 +175,5 @@ app_ui <- navbarPage(
         developing countries are willing to spend more on education as this 
         can in turn bring awareness, and create more jobs for their country 
         and economy.")
-  ),
-  tabPanel("About")
+  )
 )
