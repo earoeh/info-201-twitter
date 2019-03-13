@@ -20,9 +20,11 @@ generate_capita_plot <- function(selected_year) {
   united_kingdom_year <- filter(united_kingdom,
                                 Year == selected_year)
   
-  ggplot(united_kingdom_year, aes(x = Type, y = GDP.Per.Capita)) +
-    geom_bar(stat = 'identity', fill = "steelblue", alpha = .7) + 
+  ggplot(united_kingdom_year, aes(x = Type, y = GDP.Per.Capita, fill = Type)) +
+    geom_bar(stat = 'identity', alpha = .7) + 
+    scale_fill_manual(values = c("steelblue3", "palegreen3")) +
     geom_text(aes(label = round(GDP.Per.Capita)), vjust = -0.25) +
     labs(x = "Spending",
-         y = "US Dollars per Capita")
+         y = "US Dollars per Capita") +
+    theme(legend.position = "none")
 }
