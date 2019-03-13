@@ -95,6 +95,40 @@ app_server <- function(input, output) {
     create_industrialized_plot(input$industrialized_country)
   })
   
+  output$developing_plot_analysis <- renderUI({
+    text1 <- paste0("The first thing to note about these plots is that all countries spend only a
+                   small percentage of their GDP on education. On average, in 2011, the developing
+                   countries listed here (excluding the Philippines, as data for it in 2011 wasn't
+                   available) spent ", percent_expenditure_developing, "% of their GDP on
+                   education. Also in 2011, the industrialized countries spent an average of ",
+                   percent_expenditure_industrialized, "% of their GDP on education. These numbers
+                   are quite similar, which tells us that it isn't necessarily the priority that's
+                   given to education funds that determines a country's economic success.")
+    text2 <- paste0("However, percentage of GDP spent on education isn't the same as raw
+                   money spent on education; developing countries simply don't have as much money
+                   to spend on education as industrialized countries do. While the percentages for
+                   these two categories of countries are similar, the absolute amount of money that
+                   developing countries spend on education is a lot less than that of
+                   industrialized countries.")
+    text3 <- paste0("For example, Indonesia (the developing country with the highest GDP in
+                   its category) spent ", indonesia_2011_edu, " billion US dollars on education in
+                   2011; India (the industrialized country with the lowest GDP in its category)
+                   spent ", india_2011_edu, " billion US dollars on education, also in 2011. These
+                   raw numbers are quite different and illustrate how much more money
+                   industrialized countries are able to use for education.")
+    text4 <- paste0("In conclusion, it is possible that spending more on education leads to a
+                   higher GDP. Both industrialized and developing countries spend similar
+                   percentages of their GDP on education, but industrialized countries simply have
+                   a lot more money to spend than developing countries.")
+    text5 <- paste0("Of course, the plots and this analysis don't take into account other
+                   metrics, such as population. As such, only general conclusions and correlations
+                   can be drawn from this basic analysis, and answering the question(s) posed
+                   above would require more research and data about other measures that could
+                   affect a country's GDP and overall education.")
+    
+    HTML(paste(text1, text2, text3, text4, text5, sep = "<br/>"))
+  })
+  
   output$education_slider <- renderUI({
     slider <- generate_slider(input$country)
   })

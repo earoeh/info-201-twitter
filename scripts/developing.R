@@ -16,6 +16,9 @@ eco_edu_industrialized <- economics_education %>%
          Education.Billions = round((GDP * (Education.Expenditure / 100)) / 1000000000, 1)
   )
 
+indonesia_2011_edu <- eco_edu_developing[43, 12]
+india_2011_edu <- eco_edu_industrialized[65, 12]
+
 percent_expenditure_developing <- eco_edu_developing %>%
   filter(Year == "2011") %>%
   mutate(Percent.Education = round(Education.Billions / GDP.Billions * 100, 1)) %>%

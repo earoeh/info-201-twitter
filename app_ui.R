@@ -79,14 +79,15 @@ app_ui <- navbarPage(
     h2("Comparing GDP and Education Spenditure for Industrialized vs. Developing Countries"),
     p("Getting an education plays a large part in finding a job and establishing a strong
       workforce in many countries. Thus, if a country spends more on education, we would expect
-      their GDP to be higher. The following plots graph GDP and education spenditure over time."),
+      their GDP to be higher."),
     p(strong("But does spending more on education guarantee a higher GDP?"), "In order to explore
       this question, this page looks at GDP and education spenditure for countries that are
       considered to be industrialized (or have a high GDP) versus countries that are considered to
       be developing. This allows us to see if", strong("education spenditure really has an effect
       on the overall economic success of a developing country.")),
-    p("Use the drop-down menus to view plots for all available countries, or select a single one
-      from each category to examine data in more detail."),
+    p("The following plots graph GDP and education spenditure over time. Use the drop-down menus to
+      view plots for all available countries, or select a single one from each category to examine
+      the data in more detail."),
     
     div(
       style = "display:inline-block",
@@ -105,7 +106,9 @@ app_ui <- navbarPage(
     ),
     
     plotOutput("developing_plot"),
-    plotOutput("industrialized_plot")
+    plotOutput("industrialized_plot"),
+    
+    htmlOutput("developing_plot_analysis")
   ),
   
   tabPanel(
