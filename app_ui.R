@@ -122,8 +122,24 @@ app_ui <- navbarPage(
       ),
   
      plotOutput("education_plot"),
-     plotOutput("population_plot")
+     plotOutput("population_plot"),
+     
+     p("So how have the countries changed their education budgeting 
+       through the years?"),
+     p("When you take a look at the different countries you see various 
+        different patterns of ups and downs. Though most countries have 
+        wavy trends, their overall trendline through a certain year range 
+        is either upwards or downwards."),
+     p("When observing countries such as Japan or United States, that are
+        well established as their populations are increasing their budget 
+        for education is also decreasing. While under developed countries
+        such as Costa Rica, Senegal and even Greece seem to be increasing 
+        the amount of money spent as their population increases. This shows
+        that the more developed countries are valuing other things more such 
+        as military budgeting, or other fundings than education's while the 
+        developing countries are willing to spend more on education as this 
+        can in turn bring awareness, and create more jobs for their country 
+        and economy.")
   ),
-
   tabPanel("About")
 )
